@@ -644,11 +644,12 @@ impl ScriptConfig {
         };
 
         // We need to enable tracing to decode contract names: local or external.
+        let networks = self.evm_opts.networks.with_chain_id(env.evm_env.cfg_env.chain_id);
         let mut builder = ExecutorBuilder::new()
             .inspectors(|stack| {
                 stack
                     .trace_mode(if debug { TraceMode::Debug } else { TraceMode::Call })
-                    .networks(self.evm_opts.networks)
+                    .networks(networks)
                     .create2_deployer(self.evm_opts.create2_deployer)
             })
             .spec_id(self.config.evm_spec_id())
