@@ -354,12 +354,13 @@ fn handle_set_metadata(input: PrecompileInput<'_>) -> PrecompileResult {
     let symbol = call.symbol;
     let decimals = call.decimals;
 
+
     // Validate inputs
-    if name.len() > 128 {
-        return Err(PrecompileError::Other("Name too long (max 128 characters)".into()));
+    if name.len() > 256 {
+        return Err(PrecompileError::Other("Name too long (max 256 characters)".into()));
     }
-    if symbol.len() > 32 {
-        return Err(PrecompileError::Other("Symbol too long (max 32 characters)".into()));
+    if symbol.len() > 128 {
+        return Err(PrecompileError::Other("Symbol too long (max 128 characters)".into()));
     }
 
     // Get the token address (caller)
