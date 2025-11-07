@@ -22,6 +22,7 @@ alloy-primitives = { workspace = true, features = [
     "arbitrary",
     "rlp",
 ] }
+alloy-sol-types.workspace = true
 
 revm = { workspace = true, features = [
     "std",

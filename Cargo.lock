@@ -4800,6 +4800,7 @@ dependencies = [
  "alloy-chains",
  "alloy-evm",
  "alloy-primitives",
+ "alloy-sol-types",
  "clap",
  "revm",
  "serde",
